@@ -1,10 +1,13 @@
 export default class Project {
   constructor(title) {
     this.title = title;
-    this.list = [];
+    this.content = [];
   }
 
-  addToList(item) {
-    this.list.push(item);
+  addItem(item) {
+    this.content.push(item);
+  }
+  get ContentCount() {
+    return this.content.length;
   }
 }

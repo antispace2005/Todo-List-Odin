@@ -1,13 +1,4 @@
-import { generateID } from "./basicFunctions";
-import ToDo from "./toDo";
-import ToDoApp from "./toDoApp";
-//Get Data From Local Storage section logic here
-
-let isNewUser = true;
-
-let app = new ToDoApp();
-
-let jsonfiletest = JSON.parse(`{
+{
   "projectsList": [
     {
       "title": "default",
@@ -47,7 +38,3 @@ let jsonfiletest = JSON.parse(`{
     { "title": "hell2o", "content": [] }
   ]
 }
-`);
-
-let test = new ToDoApp(jsonfiletest);
-console.log(test);

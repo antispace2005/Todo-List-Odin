@@ -1,50 +1,42 @@
+import { generateID } from "./basicFunctions";
 export default class ToDo {
-  constructor(title, description, dueDate, isImportant) {
-    this.information = {
-      title,
-      description,
-      dueDate: ((dueDate) => {
-        if (dueDate instanceof Date) return dueDate;
-      })(dueDate),
-      isImportant: ((isImportant) => {
-        if (isImportant == true) {
-          return true;
-        } else {
-          return false;
-        }
-      })(isImportant),
-    };
+  constructor(title, description, dueDate, priority, color) {
+    this.id = generateID();
+
+    this.title = String(title);
+
+    this.description = String(description);
+
+    this.setDueDate = dueDate instanceof Date ? dueDate : null;
+
+    this.priority = priority == undefined ? 0 : priority;
+
+    this.done = false;
+
+    this.color = color == undefined ? "#FFFFFF" : String(color);
   }
 
   //setters
-  set title(title) {
-    this.information.title = title;
-  }
-  set description(description) {
-    this.information.title = description;
-  }
-  set dueDate(dueDate) {
+
+  set setDueDate(dueDate) {
     if (dueDate instanceof Date) {
-      this.information.title = dueDate;
+      this.dueDate = dueDate;
     }
   }
-  set isImportant(isImportant) {
-    this.information.title = isImportant;
-  }
-  //getters
-  get title() {
-    return this.information.title;
-  }
 
-  get description() {
-    return this.information.description;
-  }
+  getFromObj({ id, title, description, dueDate, priority, color }) {
+    this.id = id;
 
-  get dueDate() {
-    return this.information.dueDate;
-  }
+    this.title = String(title);
 
-  get isImportant() {
-    return this.information.isImportant;
+    this.description = String(description);
+
+    this.setDueDate = dueDate instanceof Date ? dueDate : null;
+
+    this.priority = priority == undefined ? 0 : priority;
+
+    this.done = false;
+
+    this.color = color == undefined ? "#FFFFFF" : String(color);
   }
 }
