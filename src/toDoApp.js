@@ -19,7 +19,6 @@ export default class ToDoApp {
       this.addProject(project.title);
       for (const toDoObj of project.content) {
         let tempToDo = new ToDo();
-        console.log(toDoObj);
         tempToDo.getFromObj(toDoObj);
         this.addToDoToProject(tempToDo, project.title);
       }
@@ -43,6 +42,7 @@ export default class ToDoApp {
       }
     }
     this.projectsList.push(new Project(name));
+    this.saveJSON();
     return 0;
   }
 
@@ -50,7 +50,7 @@ export default class ToDoApp {
     for (let i = 0; i < this.projectsList.length; i++) {
       if (this.projectsList[i].title == projectName) {
         this.projectsList[i].addItem(toDo);
-
+        this.saveJSON();
         return 0;
       }
     }
@@ -60,7 +60,8 @@ export default class ToDoApp {
   removeProject(projectName) {
     for (let i = 0; i < this.projectsList.length; i++) {
       if (this.projectsList[i].title == projectName) {
-        this.projectsList.slice(i, 1);
+        this.projectsList.splice(i, 1);
+        this.saveJSON();
         return 0;
       }
     }
@@ -71,7 +72,8 @@ export default class ToDoApp {
     for (let i = 0; i < this.projectsList.length; i++) {
       for (let j = 0; i < this.projectsList[i].content.length; i++) {
         if (this.projectsList[i].content[j].id == id) {
-          this.projectsList[i].content.slice(j, 1);
+          this.projectsList[i].content.splice(j, 1);
+          this.saveJSON();
           return 0;
         }
       }
@@ -81,5 +83,17 @@ export default class ToDoApp {
 
   initApp() {
     this.projectsList.push(this.createExampleProject());
+    this.loadJSON();
+  }
+
+  saveJSON() {
+    localStorage["todoapp"] = JSON.stringify(this);
+  }
+  loadJSON() {
+    if (localStorage["todoapp"] != undefined) {
+      this.loadProjectListJSON(
+        JSON.parse(localStorage["todoapp"])["projectsList"]
+      );
+    }
   }
 }

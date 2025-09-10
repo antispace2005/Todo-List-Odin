@@ -48,6 +48,9 @@ let jsonfiletest = JSON.parse(`{
   ]
 }
 `);
-
 let test = new ToDoApp(jsonfiletest);
-console.log(test);
+test.saveJSON();
+
+let test2 = new ToDoApp();
+test2.loadJSON();
+console.log(test2);
