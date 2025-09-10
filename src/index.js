@@ -1,5 +1,4 @@
-import { generateID } from "./basicFunctions";
-import ToDo from "./toDo";
+import Display from "./display";
 import ToDoApp from "./toDoApp";
 //Get Data From Local Storage section logic here
 
@@ -54,3 +53,5 @@ test.saveJSON();
 let test2 = new ToDoApp();
 test2.loadJSON();
 console.log(test2);
+
+const domManger = new Display(test2);

@@ -96,4 +96,12 @@ export default class ToDoApp {
       );
     }
   }
+
+  getProjectsNames() {
+    let output = [];
+    for (const project of this.projectsList) {
+      output.push(project.title);
+    }
+    return output;
+  }
 }
