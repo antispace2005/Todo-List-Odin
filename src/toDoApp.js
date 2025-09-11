@@ -104,4 +104,11 @@ export default class ToDoApp {
     }
     return output;
   }
+  getToDosOfProject(projectName) {
+    for (let i = 0; i < this.projectsList.length; i++) {
+      if (this.projectsList[i].title == projectName) {
+        return this.projectsList[i].content;
+      }
+    }
+  }
 }

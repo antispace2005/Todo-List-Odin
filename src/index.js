@@ -1,5 +1,6 @@
 import Display from "./display";
 import ToDoApp from "./toDoApp";
+import "./style.css";
 //Get Data From Local Storage section logic here
 
 let isNewUser = true;
