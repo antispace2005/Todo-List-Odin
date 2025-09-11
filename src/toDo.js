@@ -24,7 +24,11 @@ export default class ToDo {
     }
   }
 
-  getFromObj({ id, title, description, dueDate, priority, color }) {
+  switchDone() {
+    this.done = !this.done;
+  }
+
+  getFromObj({ id, title, description, dueDate, priority, color, done }) {
     this.id = id;
 
     this.title = String(title);
@@ -35,7 +39,7 @@ export default class ToDo {
 
     this.priority = priority == undefined ? 0 : priority;
 
-    this.done = false;
+    this.done = done;
 
     this.color = color == undefined ? "#FFFFFF" : String(color);
   }

@@ -68,9 +68,21 @@ export default class ToDoApp {
     return 1;
   }
 
+  switchToDo(id) {
+    for (let i = 0; i < this.projectsList.length; i++) {
+      for (let j = 0; j < this.projectsList[i].content.length; j++) {
+        if (this.projectsList[i].content[j].id == id) {
+          this.projectsList[i].content[j].switchDone();
+          this.saveJSON();
+          return 0;
+        }
+      }
+    }
+  }
+
   removeToDo(id) {
     for (let i = 0; i < this.projectsList.length; i++) {
-      for (let j = 0; i < this.projectsList[i].content.length; i++) {
+      for (let j = 0; j < this.projectsList[i].content.length; j++) {
         if (this.projectsList[i].content[j].id == id) {
           this.projectsList[i].content.splice(j, 1);
           this.saveJSON();

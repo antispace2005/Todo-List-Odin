@@ -48,11 +48,10 @@ let jsonfiletest = JSON.parse(`{
   ]
 }
 `);
-let test = new ToDoApp(jsonfiletest);
-test.saveJSON();
+//let test = new ToDoApp(jsonfiletest);
+//test.saveJSON();
 
 let test2 = new ToDoApp();
 test2.loadJSON();
-console.log(test2);
 
 const domManger = new Display(test2);

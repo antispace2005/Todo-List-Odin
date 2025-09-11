@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* Ensures consistent box model behavior */
+}
+
+:root {
+  --first-color: #ececec;
+  --second-color: #9fd3c7;
+  --third-color: #385170;
+  --fourth-color: #142d4c;
+}
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--first-color);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fourth-color);
+  color: var(--first-color);
+  height: 60px;
+}
+
+#content {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  font-size: 20px;
+}
+
+/* Nav bar */
+
+#projectsList {
+}
+#projectsListContainer {
+  width: 180px;
+  background-color: var(--second-color);
+}
+
+#projectsList > ol > li {
+  background-color: var(--second-color);
+
+  padding: 20px;
+}
+#projectsList > ol > li {
+  background-color: var(--second-color);
+
+  padding: 20px;
+}
+
+#projectsList > ol > li:hover {
+  filter: brightness(90%);
+}
+#projectsList > ol > li:active {
+  filter: brightness(80%);
+}
+/* ToDo List */
+#toDosList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+#toDosListContainer {
+  flex: 1;
+}
+li {
+  list-style: none;
+}
+
+.toDoItem {
+  width: 100%;
+}
+
+#projectsList > ol > li {
+  padding: 20px;
+}
+
+.toDoItem > * {
+  padding: 8px;
+}
+
+.toDoDescription {
+  font-style: italic;
+}
